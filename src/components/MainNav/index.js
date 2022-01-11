@@ -98,8 +98,8 @@ export const MainNav = function () {
                 inActiveImage: "chat-inactive.svg",
                 link: "chat",
               },
-            ].map((menuItem) => (
-              <li onClick={() => setMainTab(menuItem.link)}>
+            ].map((menuItem, idx) => (
+              <li onClick={() => setMainTab(menuItem.link)} key={idx}>
                 <Link href={`/${menuItem.link}`}>
                   <a
                     style={{
@@ -146,8 +146,8 @@ export const MainNav = function () {
             OTHERS
           </h3>
           <ul>
-            {[{ name: "Query" }, { name: "Settings" }].map((menuItem) => (
-              <li>
+            {[{ name: "Query" }, { name: "Settings" }].map((menuItem, idx) => (
+              <li key={idx}>
                 <Link href="/">
                   <a
                     style={{
