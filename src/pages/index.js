@@ -2,8 +2,10 @@ import Head from "next/head";
 import Image from "next/image";
 import { InputGroup } from "../components";
 import styles from "../styles/Home.module.css";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <main
       style={{
@@ -38,6 +40,7 @@ export default function Home() {
               Request new password
             </p>
             <button
+              onClick={() => router.push("/dashboard")}
               style={{
                 fontSize: 16,
                 backgroundColor: "rgba(9, 29, 110, 1)",
