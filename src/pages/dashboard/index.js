@@ -15,8 +15,8 @@ export default function Dashboard() {
         </div>
 
         <ul className="flex justify-between header-container align-center">
-          {[1, 2, 3, 4].map((item) => (
-            <li>
+          {[1, 2, 3, 4].map((item, idx) => (
+            <li key={idx}>
               <div className="flex align-center">
                 <div>
                   <Image
@@ -55,6 +55,7 @@ export default function Dashboard() {
               {[{ name: "Employers" }, { name: "Workmen" }].map(
                 (menuItem, idx) => (
                   <li
+                    key={idx}
                     onClick={() => setUserTab(idx)}
                     style={{
                       padding: "16px 40px",
@@ -93,8 +94,8 @@ export default function Dashboard() {
             <th style={styles.th}> More</th>
           </tr>
           <tbody style={{ backgroundColor: "#fff" }}>
-            {[1, 2, 3, 4, 3, 4, 2].map((employer) => (
-              <tr>
+            {[1, 2, 3, 4, 3, 4, 2].map((employer, idx) => (
+              <tr key={idx}>
                 <td style={{ ...styles.td, paddingLeft: 47 }}>Brightmac Mba</td>
                 <td style={styles.td}>brightmac@homail.com</td>
                 <td style={styles.td}>23, Jun 2013</td>
