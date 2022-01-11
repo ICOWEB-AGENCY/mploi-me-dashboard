@@ -4,7 +4,8 @@ import Link from "next/link";
 import { InputGroup } from "../../components";
 
 export const MainNav = function () {
-  const [userTab, setUserTab] = useState(0);
+  const [mainTab, setMainTab] = useState("dashboard");
+  console.log(mainTab);
   return (
     <section
       style={{
@@ -98,7 +99,7 @@ export const MainNav = function () {
                 link: "chat",
               },
             ].map((menuItem) => (
-              <li>
+              <li onClick={() => setMainTab(menuItem.link)}>
                 <Link href={`/${menuItem.link}`}>
                   <a
                     style={{
@@ -115,7 +116,10 @@ export const MainNav = function () {
                     />
                     <p
                       style={{
-                        color: "rgba(255,255,255,0.4)",
+                        color:
+                          mainTab === menuItem.link
+                            ? "#fff"
+                            : "rgba(255,255,255,0.4)",
                         fontSize: 18,
                         marginLeft: 18,
                       }}
@@ -184,16 +188,4 @@ export const MainNav = function () {
       </div>
     </section>
   );
-};
-
-const styles = {
-  th: {
-    textAlign: "left",
-    padding: "11px 0",
-  },
-  td: {
-    padding: "8px 0",
-    color: "rgba(58, 74, 139, 1)",
-    backgroundColor: "#fff",
-  },
 };
